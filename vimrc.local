@@ -4,8 +4,6 @@ set wildignorecase
 " keyboard shortcuts
 " map <C-K> :pyf /usr/local/share/clang/clang-format.py<CR>
 map <leader>s :SaveSession<CR>
-map <leader>sr :SaveSession ranking<CR>
-map <leader>l :OpenSession ranking<CR>
 map <leader>w :wa<CR>
 
 " highlight search
@@ -39,7 +37,6 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 set colorcolumn=81
 set splitright
-source ~/stuff/fbvim.vim
 
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
