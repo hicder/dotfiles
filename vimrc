@@ -144,3 +144,5 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 set tags=./tags;/
+let g:ycm_rust_src_path='/home/hieu/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:rustfmt_autosave = 1
