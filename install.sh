@@ -10,6 +10,7 @@ rm ~/.vimrc
 rm ~/.vimrc.local
 rm ~/.vimrc.bundles
 rm ~/.tmux.conf
+rm -rf ~/.vim
 
 echo "Installing new dotfiles..."
 ln -s $current_path/vimrc ~/.vimrc
