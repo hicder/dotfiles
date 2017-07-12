@@ -70,6 +70,7 @@ nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 noremap <leader>q <Esc>:AV<CR>
+noremap <leader>e <Esc>:A<CR>
 
 " tab shortcut
 noremap <leader>1 <Esc>1gt
