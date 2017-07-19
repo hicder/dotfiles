@@ -1,5 +1,4 @@
-" Uncomment this
-" source ~/stuff/master.vimrc
+source ~/stuff/master.vimrc
 
 " don't bother with vi compatibility
 set nocompatible
@@ -65,12 +64,15 @@ noremap <C-l> <C-w>l
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
+"nnoremap <leader>f :NERDTreeFind<CR>
+" nnoremap <leader>t :CtrlP<CR>
+" nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>t :YcmCompleter GoTo<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+" noremap <C-o> <Esc>:vs<Space>
 noremap <leader>q <Esc>:AV<CR>
-noremap <leader>e <Esc>:A<CR>
 
 " tab shortcut
 noremap <leader>1 <Esc>1gt
@@ -79,12 +81,32 @@ noremap <leader>3 <Esc>3gt
 noremap <leader>4 <Esc>4gt
 noremap <leader>5 <Esc>5gt
 noremap <leader>6 <Esc>6gt
+noremap <leader>mt1 <Esc>:tabm 0<CR>
+noremap <leader>mt2 <Esc>:tabm 1<CR>
+noremap <leader>mt3 <Esc>:tabm 2<CR>
+noremap <leader>mt4 <Esc>:tabm 3<CR>
+noremap <leader>mtl <Esc>:tabm<CR>
 
 " folding shortcuts
 noremap <leader>fa <Esc>za<CR>
 noremap <leader>fm <Esc>zM<CR>
-noremap <leader>fo <Esc>z0<CR>
+noremap <leader>fo <Esc>zo<CR>
 noremap <leader>fc <Esc>zc<CR>
+noremap <leader>fr <Esc>zr<CR>
+noremap <leader>fR <Esc>zR<CR>
+
+
+"map <leader>1 :1wincmd w<CR>
+"map <leader>2 :2wincmd w<CR>
+"map <leader>3 :3wincmd w<CR>
+"map <leader>4 :4wincmd w<CR>
+"map <leader>5 :5wincmd w<CR>
+"map <leader>6 :6wincmd w<CR>
+"map <leader>7 :7wincmd w<CR>
+"map <leader>8 :8wincmd w<CR>
+"map <leader>9 :9wincmd w<CR>
+"map <leader>v :set paste<CR>
+
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
@@ -145,15 +167,18 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 set tags=./tags;/
-let g:ycm_rust_src_path=$HOME + "/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-let g:rustfmt_autosave = 1
-let g:racer_cmd=$HOME + "/.cargo/bin/racer"
+" YCM must use the same Python version it's linked against
+let g:ycm_path_to_python_interpreter = '/home/hieup/fbsource/fbcode/third-party-buck/gcc-5-glibc-2.23/build/python/2.7/bin/python2.7'
+" Default ycm_extra_conf.py for fbcode
+let g:ycm_global_ycm_extra_conf = '/home/hieup/.vim/bundle/YouCompleteMe/ycm_extra_conf_fbcode.py'
 
-" Syntastic
-let g:syntastic_rust_checkers=['cargo']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_quiet_messages = { "level" : "warnings" }
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_error_symbol = 'x'
+let g:ycm_warning_symbol = '!'
+let g:cpp_member_variable_highlight = 1
+
+nnoremap <leader>y :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
