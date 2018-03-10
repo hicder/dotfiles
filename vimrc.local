@@ -15,8 +15,13 @@ if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
     colorscheme molokai
   else
-    colorscheme molokai
+    colorscheme gruvbox
+    set background=dark
   endif
+endif
+
+if &term =~ '256color'
+  set t_ut=
 endif
 
 " Disambiguate ,a & ,t from the Align plugin, making them fast again.
