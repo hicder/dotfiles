@@ -15,8 +15,8 @@ if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
     colorscheme molokai
   else
-    colorscheme gruvbox
-    set background=dark
+    colorscheme molokai
+"    set background=dark
   endif
 endif
 
@@ -89,7 +89,7 @@ call plug#end()
 
 set hidden
 let g:LanguageClient_serverCommands = {
-\ 'rust': ['rustup', 'run', 'beta', 'rls'],
+\ 'rust': ['rustup', 'run', 'stable', 'rls'],
 \ }
 let g:LanguageClient_autoStart = 1
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
@@ -97,7 +97,6 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " Racer setup.
 set hidden
-let g:racer_cmd = "/Users/hieup/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)

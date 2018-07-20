@@ -21,4 +21,3 @@ ln -s $current_path/tmux.conf ~/.tmux.conf
 touch ~/.vimrc.bundles.local
 
 vim +PluginInstall +qall
-cp extra/cargo.vim vim/bundle/rust.vim/syntax_checkers/rust
