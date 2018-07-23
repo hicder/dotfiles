@@ -90,6 +90,9 @@ call plug#end()
 set hidden
 let g:LanguageClient_serverCommands = {
 \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+\ 'cpp': ['/usr/local/bin/cquery',
+\ '--log-file=/tmp/cq.log',
+\ '--init={"cacheDirectory":"/home/hieu/cquery_cache"}'],
 \ }
 let g:LanguageClient_autoStart = 1
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
