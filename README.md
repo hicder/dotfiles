@@ -13,3 +13,13 @@ This assumes `pip` belongs to `python3`.
 ```
 ./install.sh
 ```
+
+## Optional
+* Install zshell
+```
+brew install zsh
+```
+* Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+```
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
