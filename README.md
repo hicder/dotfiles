@@ -1,5 +1,5 @@
-# dotfiles
-This contains the dotfiles I usually use on my development machines
+# Development Configuration
+This contains the dotfiles I usually use on my development machines. I use a macOS and Ubuntu for development.
 
 ## Required
 My personal preference is neovim. On Mac:
