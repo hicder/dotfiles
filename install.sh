@@ -25,3 +25,7 @@ vim +PluginInstall +qall
 echo "Making neovim read vim config..."
 mkdir -p ~/.config/nvim
 cp $current_path/neovim_config ~/.config/nvim/init.vim
+
+echo "Making karabiner config folder..."
+mkdir -p ~/.config/karabiner/assets/complex_modifications/
+cp $current_path/custom-capslock.json ~/.config/karabiner/assets/complex_modifications/
