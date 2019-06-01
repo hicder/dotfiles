@@ -62,48 +62,10 @@ let g:ycm_error_symbol = 'x'
 let g:ycm_warning_symbol = '!'
 let g:cpp_member_variable_highlight = 1
 
-nnoremap <leader>y :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
-
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 
 let g:CommandTMaxFiles=200000
 let g:CommandTFileScanner = 'watchman'
 nnoremap <leader>ct :CommandT<CR>
-
-let g:deoplete#enable_at_startup = 1
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'install.sh',
-    \ }
-Plug 'racer-rust/vim-racer'
-call plug#end()
-
-set hidden
-let g:LanguageClient_serverCommands = {
-\ 'rust': ['rustup', 'run', 'stable', 'rls'],
-\ 'cpp': ['/usr/local/bin/cquery',
-\ '--log-file=/tmp/cq.log',
-\ '--init={"cacheDirectory":"/home/hieu/cquery_cache"}'],
-\ }
-let g:LanguageClient_autoStart = 1
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-
-" Racer setup.
-set hidden
-let g:racer_experimental_completer = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 vnoremap // y/<C-R>"<CR>

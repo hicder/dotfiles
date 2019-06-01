@@ -1,3 +1,5 @@
+source ~/stuff/master.vimrc
+
 " don't bother with vi compatibility
 set nocompatible
 
@@ -49,9 +51,9 @@ set wildmode=longest,list,full
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
-if exists('$TMUX')  " Support resizing in tmux
-  set ttymouse=xterm2
-endif
+" if exists('$TMUX')  " Support resizing in tmux
+  " set ttymouse=xterm2
+" endif
 
 " keyboard shortcuts
 let mapleader = ','
@@ -62,10 +64,7 @@ noremap <C-l> <C-w>l
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
-"nnoremap <leader>f :NERDTreeFind<CR>
-" nnoremap <leader>t :CtrlP<CR>
-" nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-nnoremap <leader>t :YcmCompleter GoTo<CR>
+nnoremap <leader>ft :NERDTreeFind<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -79,11 +78,18 @@ noremap <leader>3 <Esc>3gt
 noremap <leader>4 <Esc>4gt
 noremap <leader>5 <Esc>5gt
 noremap <leader>6 <Esc>6gt
+noremap <leader>7 <Esc>7gt
+noremap <leader>8 <Esc>8gt
+noremap <C-m> <Esc>:tabnext<CR>
+noremap <C-n> <Esc>:tabprev<CR>
 noremap <leader>mt1 <Esc>:tabm 0<CR>
 noremap <leader>mt2 <Esc>:tabm 1<CR>
 noremap <leader>mt3 <Esc>:tabm 2<CR>
 noremap <leader>mt4 <Esc>:tabm 3<CR>
 noremap <leader>mtl <Esc>:tabm<CR>
+noremap <leader>= <C-W>=
+
+
 
 " folding shortcuts
 noremap <leader>fa <Esc>za<CR>
@@ -93,18 +99,12 @@ noremap <leader>fc <Esc>zc<CR>
 noremap <leader>fr <Esc>zr<CR>
 noremap <leader>fR <Esc>zR<CR>
 
+" ctags
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
-"map <leader>1 :1wincmd w<CR>
-"map <leader>2 :2wincmd w<CR>
-"map <leader>3 :3wincmd w<CR>
-"map <leader>4 :4wincmd w<CR>
-"map <leader>5 :5wincmd w<CR>
-"map <leader>6 :6wincmd w<CR>
-"map <leader>7 :7wincmd w<CR>
-"map <leader>8 :8wincmd w<CR>
-"map <leader>9 :9wincmd w<CR>
-"map <leader>v :set paste<CR>
-
+" paste
+noremap <leader>p <Esc>:set paste<CR>
+noremap <leader>np <Esc>:set nopaste<CR>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
@@ -165,3 +165,14 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 set tags=./tags;/
+
+"set completeopt-=preview
+let g:NERDTreeWinSize=28
+
+" Command-T options
+" let g:CommandTMaxFiles=2000000
+" let g:CommandTFileScanner='watchman'
+" nmap <silent> <leader>ct <Plug>(CommandT)
+
+set rtp+=/usr/local/share/myc/vim 
+nmap <leader>t :MYC<CR>
