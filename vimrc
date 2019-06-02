@@ -1,4 +1,4 @@
-source ~/stuff/master.vimrc
+" source ~/stuff/master.vimrc
 
 " don't bother with vi compatibility
 set nocompatible
