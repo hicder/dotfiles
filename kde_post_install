@@ -1,0 +1,11 @@
+# Things to do after installing KDE
+* Change to breeze dark
+  * System Settings -> Look and Feel -> Breeze Dark
+* Install sierrabreeze
+  * https://github.com/ishovkun/SierraBreeze
+* Install latte-dock
+  * Not needed in 19.10
+* Change animation to magic lamp
+  * System Settings -> Desktop Behavior -> Magic Lamp
+* Change Task Switcher to Thumbnal
+  * System Settings -> Window Behavior -> Task Switcher
