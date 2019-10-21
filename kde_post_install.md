@@ -1,4 +1,7 @@
 # Things to do after installing KDE
+These are things I do after installing Kubuntu to get things to work and look nice.
+
+## Looks and Feels
 * Change to breeze dark
   * System Settings -> Look and Feel -> Breeze Dark
 * Install sierrabreeze
@@ -10,7 +13,15 @@
 * Change Task Switcher to Thumbnal
   * System Settings -> Window Behavior -> Task Switcher
 
-* Fix bluetooth
+## Software
+### Vietnamese typing with ibus
+```
+sudo apt install ibus ibus-gtk3
+im-config
+```
+
+## Hardware
+### Fix bluetooth
 ```
 sudo apt install pulseaudio pulseaudio-utils pavucontrol pulseaudio-module-bluetooth
 sudo vim /etc/bluetooth/audio.conf
@@ -25,6 +36,7 @@ Then:
 ```
 sudo service bluetooth restart
 ```
+Then:
   * Go to this link: https://gist.github.com/pylover/d68be364adac5f946887b85e6ed6e7ae
   * Get the Device ID from: `pacmd list-cards`
   * Run: `a2dp.py <Device ID>`
