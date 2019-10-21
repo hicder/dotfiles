@@ -9,3 +9,22 @@
   * System Settings -> Desktop Behavior -> Magic Lamp
 * Change Task Switcher to Thumbnal
   * System Settings -> Window Behavior -> Task Switcher
+
+* Fix bluetooth
+```
+sudo apt install pulseaudio pulseaudio-utils pavucontrol pulseaudio-module-bluetooth
+sudo vim /etc/bluetooth/audio.conf
+```
+Add this section:
+```
+# This section contains general options
+    [General]
+    Enable=Source,Sink,Media,Socket
+```
+Then:
+```
+sudo service bluetooth restart
+```
+  * Go to this link: https://gist.github.com/pylover/d68be364adac5f946887b85e6ed6e7ae
+  * Get the Device ID from: `pacmd list-cards`
+  * Run: `a2dp.py <Device ID>`
