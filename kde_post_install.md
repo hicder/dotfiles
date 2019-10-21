@@ -1,5 +1,6 @@
 # Kubuntu post installation
 These are things I do after installing Kubuntu to get things to work and look nice.
+Currently it works with Kubuntu 19.10.
 
 ## Looks and Feels
 * Change to breeze dark
