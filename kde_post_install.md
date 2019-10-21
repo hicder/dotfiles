@@ -1,4 +1,4 @@
-# Things to do after installing KDE
+# Kubuntu post installation
 These are things I do after installing Kubuntu to get things to work and look nice.
 
 ## Looks and Feels
@@ -7,7 +7,7 @@ These are things I do after installing Kubuntu to get things to work and look ni
 * Install sierrabreeze
   * https://github.com/ishovkun/SierraBreeze
 * Install latte-dock
-  * Not needed in 19.10
+  * `sudo apt install latte-dock`
 * Change animation to magic lamp
   * System Settings -> Desktop Behavior -> Magic Lamp
 * Change Task Switcher to Thumbnal
@@ -19,6 +19,7 @@ These are things I do after installing Kubuntu to get things to work and look ni
 sudo apt install ibus ibus-gtk3
 im-config
 ```
+Then choose `ibus`
 
 ## Hardware
 ### Fix bluetooth
