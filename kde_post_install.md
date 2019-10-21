@@ -22,7 +22,7 @@ im-config
 Then choose `ibus`
 
 ## Hardware
-### Fix bluetooth
+### Fix bluetooth headphone
 ```
 sudo apt install pulseaudio pulseaudio-utils pavucontrol pulseaudio-module-bluetooth
 sudo vim /etc/bluetooth/audio.conf
