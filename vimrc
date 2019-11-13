@@ -168,11 +168,3 @@ set tags=./tags;/
 
 "set completeopt-=preview
 let g:NERDTreeWinSize=28
-
-" Command-T options
-" let g:CommandTMaxFiles=2000000
-" let g:CommandTFileScanner='watchman'
-" nmap <silent> <leader>ct <Plug>(CommandT)
-
-set rtp+=/usr/local/share/myc/vim 
-nmap <leader>t :MYC<CR>

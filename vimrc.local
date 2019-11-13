@@ -46,8 +46,10 @@ set splitright
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
-map <C-K> :pyf /usr/local/share/clang/clang-format.py<CR>
-imap <C-K> <ESC>:pyf /usr/local/share/clang/clang-format.py<CR>
+" Needs to install clang-format first
+" sudo apt install clang-format
+map <C-K> :py3f /usr/share/vim/addons/syntax/clang-format.py<CR>
+imap <C-K> <ESC>:py3f /usr/share/vim/addons/syntax/clang-format.py<CR>
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -55,17 +57,20 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_error_symbol = 'x'
-let g:ycm_warning_symbol = '!'
-let g:cpp_member_variable_highlight = 1
-
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 
 let g:CommandTMaxFiles=200000
 let g:CommandTFileScanner = 'watchman'
-nnoremap <leader>ct :CommandT<CR>
+nmap <silent> <leader>t <Plug>(CommandT)
 
 vnoremap // y/<C-R>"<CR>
+
+let g:ale_completion_enabled=1
+let g:ale_set_balloons = 1
+set completeopt=menu,menuone,preview,noselect,noinsert
+
+let g:ale_linters = {
+      \  'cpp': ['clangd'],
+      \}
+nmap <leader>j <Esc>:ALEGoToDefinition<CR>
+set omnifunc=ale#completion#OmniFunc
