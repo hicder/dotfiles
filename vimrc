@@ -90,8 +90,6 @@ noremap <leader>mt4 <Esc>:tabm 3<CR>
 noremap <leader>mtl <Esc>:tabm<CR>
 noremap <leader>= <C-W>=
 
-
-
 " folding shortcuts
 noremap <leader>fa <Esc>za<CR>
 noremap <leader>fm <Esc>zM<CR>
@@ -111,7 +109,6 @@ noremap <leader>np <Esc>:set nopaste<CR>
 cnoremap w!! %!sudo tee > /dev/null %
 
 " plugin settings
-let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
 let g:gitgutter_enabled = 0
 
@@ -119,25 +116,7 @@ let g:gitgutter_enabled = 0
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" fdoc is yaml
-" autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
-" md is markdown
-" autocmd BufRead,BufNewFile *.md set filetype=markdown
-" autocmd BufRead,BufNewFile *.md set spell
-" extra rails.vim help
-" autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
-" autocmd User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
-" autocmd User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
-" autocmd User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
-" autocmd User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
-" autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
-" automatically rebalance windows on vim resize
-" autocmd VimResized * :wincmd =
 
 " Fix Cursor in TMUX
 if exists('$TMUX')
@@ -153,19 +132,12 @@ vnoremap p "_dP
 
 " Go crazy!
 if filereadable(expand("~/.vimrc.local"))
-  " In your .vimrc.local, you might like:
-  "
-  " set autowrite
-  " set nocursorline
-  " set nowritebackup
-  " set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
-  "
-  " autocmd! bufwritepost .vimrc source ~/.vimrc
-  " noremap! jj <ESC>
   source ~/.vimrc.local
 endif
 
-set tags=./tags;/
+" Put tabline function in a separate file to make vimrc readable
+if filereadable(expand("~/.vimrc.tabline"))
+  source ~/.vimrc.tabline
+endif
 
-"set completeopt-=preview
-let g:NERDTreeWinSize=28
+set tags=./tags;/
