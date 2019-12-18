@@ -19,6 +19,7 @@ if filereadable(expand("~/.vimrc.bundles"))
 endif
 
 call vundle#end()
+call glaive#Install()
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
