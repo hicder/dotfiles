@@ -20,6 +20,7 @@ if filereadable(expand("~/.vimrc.bundles"))
 endif
 
 call vundle#end()
+call glaive#Install()
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

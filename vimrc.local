@@ -56,3 +56,5 @@ let g:CommandTMaxFiles=200000
 let g:CommandTFileScanner = 'watchman'
 
 vnoremap // y/<C-R>"<CR>
+Glaive codefmt google_java_executable="java -jar ~/code/bin/google-java-format-1.7-all-deps.jar"
+
