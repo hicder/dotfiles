@@ -12,6 +12,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -19,6 +20,10 @@ if filereadable(expand("~/.vimrc.bundles"))
 endif
 
 call vundle#end()
+
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
@@ -97,6 +102,7 @@ noremap <leader>fo <Esc>zo<CR>
 noremap <leader>fc <Esc>zc<CR>
 noremap <leader>fr <Esc>zr<CR>
 noremap <leader>fR <Esc>zR<CR>
+noremap <leader>t <Esc>:FZF<CR>
 
 " ctags
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -138,6 +144,10 @@ endif
 " Put tabline function in a separate file to make vimrc readable
 if filereadable(expand("~/.vimrc.tabline"))
   source ~/.vimrc.tabline
+endif
+
+if filereadable(expand("~/.vimrc.coc"))
+  source ~/.vimrc.coc
 endif
 
 set tags=./tags;/

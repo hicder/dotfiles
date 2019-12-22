@@ -54,6 +54,5 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 
 let g:CommandTMaxFiles=200000
 let g:CommandTFileScanner = 'watchman'
-nmap <silent> <leader>t <Plug>(CommandT)
 
 vnoremap // y/<C-R>"<CR>

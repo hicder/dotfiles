@@ -17,6 +17,7 @@ ln -s $current_path/vimrc ~/.vimrc
 ln -s $current_path/vimrc.local ~/.vimrc.local
 ln -s $current_path/vimrc.bundles ~/.vimrc.bundles
 ln -s $current_path/vimrc.tabline ~/.vimrc.tabline
+ln -s $current_path/vimrc.coc ~/.vimrc.coc
 ln -s $current_path/vim ~/.vim
 ln -s $current_path/tmux.conf ~/.tmux.conf
 touch ~/.vimrc.bundles.local
