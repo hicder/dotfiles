@@ -77,6 +77,7 @@ noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo '
 " noremap <C-o> <Esc>:vs<Space>
 noremap <leader>q <Esc>:AV<CR>
 noremap <leader>o <Esc>:tabo<CR>
+inoremap <C-j> <Esc>
 
 " tab shortcut
 noremap <leader>1 <Esc>1gt
