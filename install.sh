@@ -29,11 +29,14 @@ mkdir -p ~/.config/nvim
 cp $current_path/neovim_config ~/.config/nvim/init.vim
 
 os="$(/bin/uname)"
-if [[ os == "Linux" ]]; then
+use_i3="${USE_I3}"
+if [ $os == "Linux" -a $use_i3 == "1" ]; then
   # i3 only runs on Linux
   mkdir -p ~/.config/i3
   cp $current_path/i3config ~/.config/i3/config
-else
+fi
+
+if [ $os == "Darwin" ]; then
   # Karabiner only runs on MacOS
   echo "Making karabiner config folder..."
   mkdir -p ~/.config/karabiner/assets/complex_modifications/
