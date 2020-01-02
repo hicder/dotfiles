@@ -28,9 +28,14 @@ echo "Making neovim read vim config..."
 mkdir -p ~/.config/nvim
 cp $current_path/neovim_config ~/.config/nvim/init.vim
 
-echo "Making karabiner config folder..."
-mkdir -p ~/.config/karabiner/assets/complex_modifications/
-cp $current_path/custom-capslock.json ~/.config/karabiner/assets/complex_modifications/
-
-mkdir -p ~/.config/i3
-cp $current_path/i3config ~/.config/i3/config
+os="$(/bin/uname)"
+if [[ os == "Linux" ]]; then
+  # i3 only runs on Linux
+  mkdir -p ~/.config/i3
+  cp $current_path/i3config ~/.config/i3/config
+else
+  # Karabiner only runs on MacOS
+  echo "Making karabiner config folder..."
+  mkdir -p ~/.config/karabiner/assets/complex_modifications/
+  cp $current_path/custom-capslock.json ~/.config/karabiner/assets/complex_modifications/
+fi
