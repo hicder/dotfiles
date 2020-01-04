@@ -1,9 +1,14 @@
 current_path=$(pwd)
 echo $current_path
 
+echo "Install Vundle..."
 mkdir -p vim/bundle
 rm -rf vim/bundle/Vundle.vim
 git clone https://github.com/VundleVim/Vundle.vim.git vim/bundle/Vundle.vim
+
+echo "Install vim-plug..."
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 echo "Delete existing dotfiles..."
 rm ~/.vimrc
