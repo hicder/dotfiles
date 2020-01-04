@@ -32,18 +32,3 @@ vim +PluginInstall +qall
 echo "Making neovim read vim config..."
 mkdir -p ~/.config/nvim
 cp $current_path/neovim_config ~/.config/nvim/init.vim
-
-os="$(/bin/uname)"
-use_i3="${USE_I3}"
-if [ $os == "Linux" -a $use_i3 == "1" ]; then
-  # i3 only runs on Linux
-  mkdir -p ~/.config/i3
-  cp $current_path/i3config ~/.config/i3/config
-fi
-
-if [ $os == "Darwin" ]; then
-  # Karabiner only runs on MacOS
-  echo "Making karabiner config folder..."
-  mkdir -p ~/.config/karabiner/assets/complex_modifications/
-  cp $current_path/custom-capslock.json ~/.config/karabiner/assets/complex_modifications/
-fi
