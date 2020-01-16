@@ -2,17 +2,12 @@ set nocursorline " don't highlight current line
 set wildignorecase
 
 " keyboard shortcuts
-map <leader>s :SaveSession<CR>
-map <leader>w :wa<CR>
+nnoremap <leader>s :SaveSession<CR>
+nnoremap <leader>w :wa<CR>
 
-" gui settings
-if (&t_Co == 256 || has('gui_running'))
-  if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme molokai
-  else
-    colorscheme molokai
-  endif
-endif
+colorscheme molokai
+let g:airline_theme='molokai'
+let ayucolor="dark"
 
 if &term =~ '256color'
   set t_ut=
@@ -39,10 +34,7 @@ set splitright
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
-" Needs to install clang-format first
-" sudo apt install clang-format
-map <C-K> :py3f /usr/share/vim/addons/syntax/clang-format.py<CR>
-imap <C-K> <ESC>:py3f /usr/share/vim/addons/syntax/clang-format.py<CR>
+noremap <leader>j <ESC>:FormatCode<CR>
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -56,5 +48,7 @@ let g:CommandTMaxFiles=200000
 let g:CommandTFileScanner = 'watchman'
 
 vnoremap // y/<C-R>"<CR>
-Glaive codefmt google_java_executable="java -jar ~/code/bin/google-java-format-1.7-all-deps.jar"
-Glaive codefmt rustfmt_options=`["--edition=2018"]`
+" Uncomment this once Glaive is installed
+" Glaive codefmt google_java_executable="java -jar /data/home/hieu/code/bin/google-java-format-1.7-all-deps.jar"
+" Glaive codefmt rustfmt_options=`["--edition=2018"]`
+
