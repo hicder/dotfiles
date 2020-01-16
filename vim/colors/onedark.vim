@@ -78,7 +78,7 @@ let s:purple = { "gui": "#C678DD", "cterm": "170", "cterm16": "5" } " Alternate 
 let s:cyan = { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" } " Alternate cterm: 73
 "let s:dark_cyan = { "gui": "#53d3d2", "cterm": "110", "cterm16": "14" }
 
-let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+let s:white = { "gui": "#FFFFFF", "cterm": "231", "cterm16" : "7" }
 
 let s:black = { "gui": "#282C34", "cterm": "235", "cterm16": "0" }
 let s:visual_black = { "gui": "NONE", "cterm": "NONE", "cterm16": s:black.cterm16 } " Black out selected text in 16-color visual mode

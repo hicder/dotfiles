@@ -6,6 +6,5 @@
       "filetypes": ["go"]
     }
   },
-  "suggest.autoTrigger":"none",
-  "clangd.semanticHighlighting": true
+  "suggest.autoTrigger":"none"
 }
