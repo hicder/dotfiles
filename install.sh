@@ -28,6 +28,7 @@ ln -s $current_path/tmux.conf ~/.tmux.conf
 touch ~/.vimrc.bundles.local
 
 vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 echo "Making neovim read vim config..."
 mkdir -p ~/.config/nvim
