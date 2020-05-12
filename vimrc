@@ -4,7 +4,7 @@
 set nocompatible
 
 " enable syntax highlighting
-syntax enable
+" syntax enable
 
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
@@ -46,11 +46,11 @@ set listchars=tab:▸\ ,trail:▫
 set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
-set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
+set shiftwidth=4                                             " normal mode indentation commands use 2 spaces
 set showcmd
 set ignorecase                                                " case-sensitive search if any caps
-set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=2                                                " actual tabs occupy 8 characters
+set softtabstop=4                                            " insert mode tab and backspace use 2 spaces
+set tabstop=4                                                " actual tabs occupy 8 characters
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
@@ -72,46 +72,44 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>ft :NERDTreeFind<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
-nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-" noremap <C-o> <Esc>:vs<Space>
 noremap <leader>q <Esc>:AV<CR>
 noremap <leader>o <Esc>:tabo<CR>
 inoremap <C-j> <Esc>
 
 " tab shortcut
-noremap <leader>1 <Esc>1gt
-noremap <leader>2 <Esc>2gt
-noremap <leader>3 <Esc>3gt
-noremap <leader>4 <Esc>4gt
-noremap <leader>5 <Esc>5gt
-noremap <leader>6 <Esc>6gt
-noremap <leader>7 <Esc>7gt
-noremap <leader>8 <Esc>8gt
-noremap <C-m> <Esc>:tabnext<CR>
-noremap <C-n> <Esc>:tabprev<CR>
-noremap <leader>mt1 <Esc>:tabm 0<CR>
-noremap <leader>mt2 <Esc>:tabm 1<CR>
-noremap <leader>mt3 <Esc>:tabm 2<CR>
-noremap <leader>mt4 <Esc>:tabm 3<CR>
-noremap <leader>mtl <Esc>:tabm<CR>
-noremap <leader>= <C-W>=
+nnoremap <leader>1 <Esc>1gt
+nnoremap <leader>2 <Esc>2gt
+nnoremap <leader>3 <Esc>3gt
+nnoremap <leader>4 <Esc>4gt
+nnoremap <leader>5 <Esc>5gt
+nnoremap <leader>6 <Esc>6gt
+nnoremap <leader>7 <Esc>7gt
+nnoremap <leader>8 <Esc>8gt
+nnoremap <C-m> <Esc>:tabnext<CR>
+nnoremap <C-n> <Esc>:tabprev<CR>
+nnoremap <leader>mt1 <Esc>:tabm 0<CR>
+nnoremap <leader>mt2 <Esc>:tabm 1<CR>
+nnoremap <leader>mt3 <Esc>:tabm 2<CR>
+nnoremap <leader>mt4 <Esc>:tabm 3<CR>
+nnoremap <leader>mtl <Esc>:tabm<CR>
+nnoremap <leader>= <C-W>=
 
 " folding shortcuts
-noremap <leader>fa <Esc>za<CR>
-noremap <leader>fm <Esc>zM<CR>
-noremap <leader>fo <Esc>zo<CR>
-noremap <leader>fc <Esc>zc<CR>
-noremap <leader>fr <Esc>zr<CR>
-noremap <leader>fR <Esc>zR<CR>
-noremap <leader>t <Esc>:FZF<CR>
+nnoremap <leader>fa <Esc>za<CR>
+nnoremap <leader>fm <Esc>zM<CR>
+nnoremap <leader>fo <Esc>zo<CR>
+nnoremap <leader>fc <Esc>zc<CR>
+nnoremap <leader>fr <Esc>zr<CR>
+nnoremap <leader>fR <Esc>zR<CR>
+nnoremap <leader>t <Esc>:FZF<CR>
 
 " ctags
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
 " paste
-noremap <leader>p <Esc>:set paste<CR>
-noremap <leader>np <Esc>:set nopaste<CR>
+nnoremap <leader>p <Esc>:set paste<CR>
+nnoremap <leader>np <Esc>:set nopaste<CR>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
@@ -148,8 +146,10 @@ if filereadable(expand("~/.vimrc.tabline"))
   source ~/.vimrc.tabline
 endif
 
+" Put tabline function in a separate file to make vimrc readable
 if filereadable(expand("~/.vimrc.coc"))
   source ~/.vimrc.coc
 endif
 
 set tags=./tags;/
+let g:loaded_matchparen=1
