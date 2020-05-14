@@ -65,3 +65,5 @@ function! MyTabLine()
   endif
   return s
 endfunction
+
+hi TabLineSel ctermfg=White ctermbg=Black

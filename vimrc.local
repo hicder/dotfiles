@@ -5,9 +5,9 @@ set wildignorecase
 nnoremap <leader>s :SaveSession<CR>
 nnoremap <leader>w :wa<CR>
 
-colorscheme molokai
-let g:airline_theme='molokai'
-let ayucolor="dark"
+set background=dark
+colorscheme onedark
+let g:airline_theme='onedark'
 
 if &term =~ '256color'
   set t_ut=
@@ -29,8 +29,6 @@ endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
-set splitright
-
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
@@ -49,6 +47,6 @@ let g:CommandTFileScanner = 'watchman'
 
 vnoremap // y/<C-R>"<CR>
 " Uncomment this once Glaive is installed
-" Glaive codefmt google_java_executable="java -jar /data/home/hieu/code/bin/google-java-format-1.7-all-deps.jar"
-" Glaive codefmt rustfmt_options=`["--edition=2018"]`
+Glaive codefmt google_java_executable="java -jar /data/home/hieu/code/bin/google-java-format-1.7-all-deps.jar"
+Glaive codefmt rustfmt_options=`["--edition=2018"]`
 
