@@ -46,7 +46,4 @@ let g:CommandTMaxFiles=200000
 let g:CommandTFileScanner = 'watchman'
 
 vnoremap // y/<C-R>"<CR>
-" Uncomment this once Glaive is installed
-Glaive codefmt google_java_executable="java -jar /data/home/hieu/code/bin/google-java-format-1.7-all-deps.jar"
-Glaive codefmt rustfmt_options=`["--edition=2018"]`
 
