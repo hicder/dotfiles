@@ -47,3 +47,5 @@ let g:CommandTFileScanner = 'watchman'
 
 vnoremap // y/<C-R>"<CR>
 
+" Fix warning everytime vim is started
+let g:snipMate = { 'snippet_version' : 1 }
