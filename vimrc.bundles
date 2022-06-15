@@ -50,3 +50,4 @@ Plugin 'mswift42/vim-themes'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-fugitive'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}

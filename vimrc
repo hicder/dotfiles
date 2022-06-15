@@ -13,6 +13,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+set rtp+=/usr/local/share/myc/vim
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -23,7 +24,9 @@ call vundle#end()
 call glaive#Install()
 
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " ensure ftdetect et al work by including this after the Vundle stuff
@@ -103,7 +106,7 @@ nnoremap <leader>fo <Esc>zo<CR>
 nnoremap <leader>fc <Esc>zc<CR>
 nnoremap <leader>fr <Esc>zr<CR>
 nnoremap <leader>fR <Esc>zR<CR>
-nnoremap <leader>t <Esc>:FZF<CR>
+nnoremap <leader>t <Esc>:MYC<CR>
 
 " ctags
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -148,8 +151,8 @@ if filereadable(expand("~/.vimrc.tabline"))
 endif
 
 " Put tabline function in a separate file to make vimrc readable
-if filereadable(expand("~/.vimrc.coc"))
-  source ~/.vimrc.coc
-endif
+" if filereadable(expand("~/.vimrc.coc"))
+"  source ~/.vimrc.coc
+" endif
 
 set tags=./tags;/
