@@ -15,6 +15,7 @@ rm ~/.vimrc
 rm ~/.vimrc.local
 rm ~/.vimrc.bundles
 rm ~/.tmux.conf
+rm ~/.zshrc
 rm -rf ~/.vim
 
 echo "Installing new dotfiles..."
