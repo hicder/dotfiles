@@ -40,7 +40,7 @@ set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
-set expandtab                                                " expand tabs to spaces
+set noexpandtab                                                " expand tabs to spaces
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
@@ -49,11 +49,11 @@ set listchars=tab:▸\ ,trail:▫
 set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
-set shiftwidth=4                                             " normal mode indentation commands use 2 spaces
+set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set showcmd
 set ignorecase                                                " case-sensitive search if any caps
-set softtabstop=4                                            " insert mode tab and backspace use 2 spaces
-set tabstop=4                                                " actual tabs occupy 8 characters
+set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
+set tabstop=2                                                " actual tabs occupy 8 characters
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
@@ -106,7 +106,7 @@ nnoremap <leader>fo <Esc>zo<CR>
 nnoremap <leader>fc <Esc>zc<CR>
 nnoremap <leader>fr <Esc>zr<CR>
 nnoremap <leader>fR <Esc>zR<CR>
-nnoremap <leader>t <Esc>:MYC<CR>
+nnoremap <leader>t <Esc>:FZF<CR>
 
 " ctags
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -147,7 +147,7 @@ endif
 
 " Put tabline function in a separate file to make vimrc readable
 if filereadable(expand("~/.vimrc.tabline"))
-  source ~/.vimrc.tabline
+  " source ~/.vimrc.tabline
 endif
 
 " Put tabline function in a separate file to make vimrc readable
