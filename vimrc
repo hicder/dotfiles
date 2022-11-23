@@ -145,14 +145,4 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-" Put tabline function in a separate file to make vimrc readable
-if filereadable(expand("~/.vimrc.tabline"))
-  " source ~/.vimrc.tabline
-endif
-
-" Put tabline function in a separate file to make vimrc readable
-" if filereadable(expand("~/.vimrc.coc"))
-"  source ~/.vimrc.coc
-" endif
-
 set tags=./tags;/
