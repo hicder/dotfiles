@@ -136,9 +136,6 @@ lspconfig.rust_analyzer.setup {
   },
   settings = {
     ["rust-analyzer"] = {
-      cargo = {
-        allFeatures = true,
-      },
       completion = {
         postfix = {
           enable = false,
