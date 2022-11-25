@@ -90,8 +90,6 @@ nnoremap <leader>5 <Esc>5gt
 nnoremap <leader>6 <Esc>6gt
 nnoremap <leader>7 <Esc>7gt
 nnoremap <leader>8 <Esc>8gt
-nnoremap <C-m> <Esc>:tabnext<CR>
-nnoremap <C-n> <Esc>:tabprev<CR>
 nnoremap <leader>mt1 <Esc>:tabm 0<CR>
 nnoremap <leader>mt2 <Esc>:tabm 1<CR>
 nnoremap <leader>mt3 <Esc>:tabm 2<CR>
