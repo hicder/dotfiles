@@ -107,4 +107,4 @@ alias az="source ~/.zshrc"
 alias tm="tmux attach -d"
 alias dka='docker kill $(docker ps -q)'
 
-export PATH=$PATH:/usr/local/go/bin:/home/$USER/go/bin:/home/$USER/.cargo/bin
+export PATH=$PATH:/usr/local/go/bin:/home/$USER/go/bin:/home/$USER/.cargo/bin:/opt/bin/nvim-linux64/bin
