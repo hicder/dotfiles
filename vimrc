@@ -58,6 +58,7 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set splitright
+set switchbuf+=usetab,newtab
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -77,7 +78,6 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>ft :NERDTreeFind<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-noremap <leader>q <Esc>:AV<CR>
 noremap <leader>o <Esc>:tabo<CR>
 inoremap <C-j> <Esc>
 
