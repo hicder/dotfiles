@@ -143,4 +143,5 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+" for ctags
 set tags=./tags;/
