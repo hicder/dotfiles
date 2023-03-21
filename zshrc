@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/hieu/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -107,4 +107,11 @@ alias az="source ~/.zshrc"
 alias tm="tmux attach -d"
 alias dka='docker kill $(docker ps -q)'
 
-export PATH=$PATH:/usr/local/go/bin:/home/$USER/go/bin:/home/$USER/.cargo/bin:/opt/bin/nvim-linux64/bin
+# git alias
+alias gca="git commit --amend"
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin:/opt/homebrew/bin
+
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
