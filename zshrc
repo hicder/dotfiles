@@ -109,6 +109,8 @@ alias dka='docker kill $(docker ps -q)'
 
 # git alias
 alias gca="git commit --amend"
+alias gr="git rebase --interactive master"
+alias gc="git rebase --continue"
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin:/opt/homebrew/bin
 
 if [ -f ~/.zshrc.local ]; then
