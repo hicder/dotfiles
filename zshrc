@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 alias n="nvim"
 alias v="nvim"
 alias ez="nvim ~/.zshrc"
+alias ez="nvim ~/.zshrc.local"
 alias az="source ~/.zshrc"
 alias tm="tmux attach -d"
 alias dka='docker kill $(docker ps -q)'
