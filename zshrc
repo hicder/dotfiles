@@ -118,3 +118,16 @@ if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 
+# start_tmux name num_windows
+function start_tmux() {
+  sn=$1
+  num_windows=$2
+
+  cd $HOME
+  tmux new-session -s "$sn" -d
+  for i in {2..$num_windows}; do
+    tmux new-window -t "$sn:$i"
+  done
+  tmux select-window -t "$sn:1"
+  tmux -2 attach-session -t "$sn"
+}
