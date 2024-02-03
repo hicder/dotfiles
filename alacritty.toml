@@ -75,7 +75,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 save_to_clipboard = true
 
 [cursor]
-style = "Underline"
+style = "Block"
 vi_mode_style = "None"
 unfocused_hollow = true
 thickness = 0.15
@@ -95,6 +95,16 @@ action = "Paste"
 [[keyboard.bindings]]
 key = "Copy"
 action = "Copy"
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Alt"
+chars = "\u001bf"
+
+[[keyboard.bindings]]
+key = "Left"
+mods = "Alt"
+chars = "\u001bb"
 
 [[keyboard.bindings]]
 key = "L"
