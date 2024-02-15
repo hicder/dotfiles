@@ -8,11 +8,14 @@ rm ~/.vimrc.bundles
 rm ~/.tmux.conf
 rm ~/.zshrc
 rm -rf ~/.vim
-rm ~/.config/alacritty/alacritty.toml
+rm ~/.config/alacritty/alacritty.toml || true
 
 echo "Installing new dotfiles..."
 ln -s $current_path/tmux.conf ~/.tmux.conf
 ln -s $current_path/zshrc ~/.zshrc
+
+echo "Install alacritty..."
+mkdir -p ~/.config/alacritty
 ln -s $current_path/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 echo "Install astronvim..."
