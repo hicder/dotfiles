@@ -1,3 +1,5 @@
+source /etc/profile
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -118,6 +120,10 @@ if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 
+if [ -f ~/.zshrc.local.env ]; then
+  source ~/.zshrc.local.env
+fi
+
 # start_tmux name num_windows
 function start_tmux() {
   sn=$1
@@ -131,3 +137,11 @@ function start_tmux() {
   tmux select-window -t "$sn:1"
   tmux -2 attach-session -t "$sn"
 }
+
+alias aladark="ln -fs ~/.config/alacritty/themes/themes/one_dark.toml ~/.config/alacritty/_active.toml"
+alias alalight="ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml"
+
+func alatheme() {
+  ln -fs ~/.config/alacritty/themes/themes/$1.toml ~/.config/alacritty/themes/themes/_active.toml
+}
+

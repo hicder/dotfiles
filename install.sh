@@ -15,8 +15,10 @@ ln -s $current_path/tmux.conf ~/.tmux.conf
 ln -s $current_path/zshrc ~/.zshrc
 
 echo "Install alacritty..."
-mkdir -p ~/.config/alacritty
-ln -s $current_path/alacritty.toml ~/.config/alacritty/alacritty.toml
+mkdir -p ~/.config/alacritty/themes
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml
+ln -fs $current_path/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 echo "Install astronvim..."
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
