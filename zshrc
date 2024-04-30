@@ -124,6 +124,11 @@ if [ -f ~/.zshrc.local.env ]; then
   source ~/.zshrc.local.env
 fi
 
+# if [ -f ~/.zshrc.env.staging ]; then
+#  source ~/.zshrc.env.staging
+# fi
+
+
 # start_tmux name num_windows
 function start_tmux() {
   sn=$1
@@ -136,6 +141,11 @@ function start_tmux() {
   done
   tmux select-window -t "$sn:1"
   tmux -2 attach-session -t "$sn"
+}
+
+function kill_tmux() {
+  sn=$1
+  tmux kill-session -t work
 }
 
 alias aladark="ln -fs ~/.config/alacritty/themes/themes/one_dark.toml ~/.config/alacritty/_active.toml"
