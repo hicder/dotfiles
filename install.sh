@@ -21,4 +21,6 @@ ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_
 ln -fs $current_path/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 echo "Install astronvim..."
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+
