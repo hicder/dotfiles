@@ -8,11 +8,12 @@ rm ~/.vimrc.bundles
 rm ~/.tmux.conf
 rm ~/.zshrc
 rm -rf ~/.vim
-rm ~/.config/alacritty/alacritty.toml || true
+rm -rf ~/.config/alacritty || true
+rm -rf ~/.config/nvim || true
 
 echo "Installing new dotfiles..."
-ln -s $current_path/tmux.conf ~/.tmux.conf
-ln -s $current_path/zshrc ~/.zshrc
+ln -sf $current_path/tmux.conf ~/.tmux.conf
+ln -sf $current_path/zshrc ~/.zshrc
 
 echo "Install alacritty..."
 mkdir -p ~/.config/alacritty/themes
