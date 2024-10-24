@@ -112,6 +112,7 @@ alias dka='docker kill $(docker ps -q)'
 alias gca="git commit --amend"
 alias gr="git rebase --interactive master"
 alias gc="git rebase --continue"
+alias ga="git add ."
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin:/opt/homebrew/bin
 
 if [ -f ~/.zshrc.local ]; then
@@ -121,11 +122,6 @@ fi
 if [ -f ~/.zshrc.local.env ]; then
   source ~/.zshrc.local.env
 fi
-
-# if [ -f ~/.zshrc.env.staging ]; then
-#  source ~/.zshrc.env.staging
-# fi
-
 
 # start_tmux name num_windows
 function start_tmux() {
@@ -154,13 +150,11 @@ func alatheme() {
 }
 
 func kde_light() {
-  lookandfeeltool -a org.kde.breeze.desktop
-  /usr/lib/plasma-changeicons Eleven
+  lookandfeeltool -a hieu.light.desktop
   alalight
 }
 
 func kde_dark() {
-   lookandfeeltool -a org.kde.breezedark.desktop
-  /usr/lib/plasma-changeicons Eleven-Dark
+   lookandfeeltool -a hieu.dark.desktop
   aladark
 }

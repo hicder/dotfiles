@@ -25,3 +25,10 @@ echo "Install astronvim..."
 git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
+echo "Installing git aliases..."
+git config --global alias.cm commit
+git config --global alias.d diff
+git config --global alias.b branch
+git config --global alias.co checkout
+git config --global alias.st status
+
