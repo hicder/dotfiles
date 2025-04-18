@@ -4,7 +4,12 @@ source /etc/profile
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# On Mac, we assume that we have installed into $HOME
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export ZSH="/usr/share/oh-my-zsh"
+else
+  export ZSH="$HOME/.oh-my-zsh"
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,7 +118,20 @@ alias gca="git commit --amend"
 alias gr="git rebase --interactive master"
 alias gc="git rebase --continue"
 alias ga="git add ."
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin:/opt/homebrew/bin
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export HOMEBREW_PATH=/home/linuxbrew/.linuxbrew
+else
+  export HOMEBREW_PATH=/opt/homebrew
+fi
+
+# If homebrew is installed, shellenv
+if [[ -d $HOMEBREW_PATH ]]; then
+  eval "$($HOMEBREW_PATH/bin/brew shellenv)"
+  export PATH="$HOMEBREW_PATH/opt/llvm@14/bin:$PATH"
+fi
+
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin:$HOME/.local/bin
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
@@ -137,24 +155,32 @@ function start_tmux() {
   tmux -2 attach-session -t "$sn"
 }
 
+# kill tmux
 function kill_tmux() {
   sn=$1
-  tmux kill-session -t work
+  tmux kill-session -t "$sn"
 }
 
-alias aladark="ln -fs ~/.config/alacritty/themes/themes/one_dark.toml ~/.config/alacritty/_active.toml"
-alias alalight="ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml"
+# If this is linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  alias aladark="ln -fs ~/.config/alacritty/themes/themes/one_dark.toml ~/.config/alacritty/_active.toml"
+  alias alalight="ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml"
 
-func alatheme() {
-  ln -fs ~/.config/alacritty/themes/themes/$1.toml ~/.config/alacritty/themes/themes/_active.toml
-}
+  func alatheme() {
+    ln -fs ~/.config/alacritty/themes/themes/$1.toml ~/.config/alacritty/themes/themes/_active.toml
+  }
 
-func kde_light() {
-  lookandfeeltool -a hieu.light.desktop
-  alalight
-}
+  func kde_light() {
+    lookandfeeltool -a hieu.light.desktop
+    alalight
+  }
 
-func kde_dark() {
-   lookandfeeltool -a hieu.dark.desktop
-  aladark
-}
+  func kde_dark() {
+    lookandfeeltool -a hieu.dark.desktop
+    aladark
+  }
+fi
+
+if [ -f ~/.zshrc.ai.env ]; then
+  source ~/.zshrc.ai.env
+fi
