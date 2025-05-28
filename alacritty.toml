@@ -15,6 +15,7 @@ decorations = "full"
 title = "Alacritty@CachyOS"
 opacity = 1.0
 decorations_theme_variant = "Dark"
+option_as_alt = "Both"
 
 [window.dimensions]
 columns = 100
