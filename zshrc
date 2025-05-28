@@ -161,11 +161,11 @@ function kill_tmux() {
   tmux kill-session -t "$sn"
 }
 
+alias aladark="ln -fs ~/.config/alacritty/themes/themes/one_dark.toml ~/.config/alacritty/_active.toml"
+alias alalight="ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml"
+
 # Differnt aliases for different OS
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  alias aladark="ln -fs ~/.config/alacritty/themes/themes/one_dark.toml ~/.config/alacritty/_active.toml"
-  alias alalight="ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml"
-
   func alatheme() {
     ln -fs ~/.config/alacritty/themes/themes/$1.toml ~/.config/alacritty/themes/themes/_active.toml
   }
@@ -182,6 +182,22 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias w="open $1 -a /Applications/Windsurf.app"
   alias c="open $1 -a /Applications/Cursor.app"
+fi
+
+function rebase_branch {
+  branch_name=$1
+  commit=$(git rev-parse --verify $branch_name)
+  git branch -D $branch_name
+  git checkout -b $branch_name
+  git cherry-pick $commit
+}
+
+# If this is MacOS, then do something
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias v="open $1 -a /Applications/Visual\ Studio\ Code.app"
+  alias c="open $1 -a /Applications/Cursor.app"
+  alias w="open $1 -a /Applications/Windsurf.app"
+  alias nv="open $1 -a /Applications/Neovide.app/"
 fi
 
 if [ -f ~/.zshrc.ai.env ]; then

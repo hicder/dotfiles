@@ -1,9 +1,3 @@
-import = [
-    "~/.config/alacritty/_active.toml"
-]
-
-live_config_reload = true
-working_directory = "None"
 
 [env]
 TERM = "xterm-256color"
@@ -33,22 +27,22 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 11
+size = 13
 
 [font.normal]
-family = "Jetbrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "Jetbrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "Jetbrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.bold_italic]
-family = "Jetbrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [selection]
@@ -153,6 +147,16 @@ key = "Key0"
 mods = "Control"
 action = "ResetFontSize"
 
-[shell]
+[general]
+
+live_config_reload = true
+working_directory = "None"
+import = [
+    "~/.config/alacritty/_active.toml"
+]
+
+[terminal]
+
+[terminal.shell]
 program = "/bin/zsh"
 
