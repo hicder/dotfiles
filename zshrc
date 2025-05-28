@@ -161,7 +161,7 @@ function kill_tmux() {
   tmux kill-session -t "$sn"
 }
 
-# If this is linux
+# Differnt aliases for different OS
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   alias aladark="ln -fs ~/.config/alacritty/themes/themes/one_dark.toml ~/.config/alacritty/_active.toml"
   alias alalight="ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml"
@@ -179,6 +179,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     lookandfeeltool -a hieu.dark.desktop
     aladark
   }
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  alias w="open $1 -a /Applications/Windsurf.app"
+  alias c="open $1 -a /Applications/Cursor.app"
 fi
 
 if [ -f ~/.zshrc.ai.env ]; then
@@ -188,3 +191,13 @@ fi
 precmd() {
   title "$(pwd)"
 }
+
+func rsync_cwd() {
+  current_dir=$(basename "$PWD")
+  rsync -azP --delete --filter=':- .gitignore' --exclude='.git/' ./ hieu@dev:/mnt/data/rsync/"$current_dir"
+}
+
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
