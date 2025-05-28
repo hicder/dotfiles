@@ -21,9 +21,8 @@ git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/theme
 ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_active.toml
 ln -fs $current_path/alacritty.toml ~/.config/alacritty/alacritty.toml
 
-echo "Install astronvim..."
-git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+echo "Install lazyvim..."
+git clone git@github.com:hicder/lazyvim.git ~/.config/nvim
 
 echo "Installing git aliases..."
 git config --global alias.cm commit
