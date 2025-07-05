@@ -31,3 +31,7 @@ git config --global alias.b branch
 git config --global alias.co checkout
 git config --global alias.st status
 
+echo "Install aerospace"
+ln -sf $current_path/aerospace.toml ~/.aerospace.toml
+
+echo "Done"
