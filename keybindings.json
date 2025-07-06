@@ -142,10 +142,22 @@
         "key": "shift+cmd+[",
         "command": "workbench.action.showPreviousWindowTab"
     },
+
     // Show documentations
     {
         "key": "shift+k",
         "command": "editor.action.showHover",
         "when": "editorTextFocus && vim.mode == 'Normal' && vim.active"
+    },
+
+    // Code navigation
+    {
+        "key": "alt+f12",
+        "command": "-editor.action.peekDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "alt+f12",
+        "command": "editor.action.revealDeclaration"
     }
 ]
