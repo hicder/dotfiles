@@ -3,13 +3,7 @@ source /etc/profile
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-# On Mac, we assume that we have installed into $HOME
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  export ZSH="/usr/share/oh-my-zsh"
-else
-  export ZSH="$HOME/.oh-my-zsh"
-fi
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -200,6 +194,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias nv="open $1 -a /Applications/Neovide.app/"
 fi
 
+# If this is Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  func reboot_win() {
+    sudo grub-reboot 2 && sudo reboot
+  }
+
+  func reboot_linux() {
+    sudo grub-reboot 0 && sudo reboot
+  }
+fi
+
 if [ -f ~/.zshrc.ai.env ]; then
   source ~/.zshrc.ai.env
 fi
@@ -216,4 +221,3 @@ func rsync_cwd() {
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
-
