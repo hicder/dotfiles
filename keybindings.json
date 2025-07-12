@@ -65,7 +65,7 @@
         "command": "editor.action.revealDeclaration"
     },
 
-    // Change super complete to Ctrl-G (for Cursor)
+    // Change super complete to Ctrl-G
     {
         "key": "ctrl+g",
         "command": "editor.action.acceptCursorTabSuggestion",
@@ -112,6 +112,14 @@
         "when": "inlineEditIsVisible && tabShouldJumpToInlineEdit && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible"
     },
 
+
+    // Show documentations
+    {
+        "key": "shift+k",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus && vim.mode == 'Normal' && vim.active"
+    },
+
     // Native Tabs on Mac
     {
         "key": "shift+cmd+t",
@@ -128,7 +136,8 @@
     },
     {
         "key": "shift+h",
-        "command": "workbench.action.previousEditor"
+        "command": "workbench.action.previousEditor",
+        "when": "editorTextFocus && vim.mode == 'Normal' && vim.active"
     },
     {
         "key": "shift+cmd+[",
@@ -141,23 +150,5 @@
     {
         "key": "shift+cmd+[",
         "command": "workbench.action.showPreviousWindowTab"
-    },
-
-    // Show documentations
-    {
-        "key": "shift+k",
-        "command": "editor.action.showHover",
-        "when": "editorTextFocus && vim.mode == 'Normal' && vim.active"
-    },
-
-    // Code navigation
-    {
-        "key": "alt+f12",
-        "command": "-editor.action.peekDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-    },
-    {
-        "key": "alt+f12",
-        "command": "editor.action.revealDeclaration"
     }
 ]
