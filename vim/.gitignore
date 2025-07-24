@@ -1,0 +1,4 @@
+bundle
+vim
+plugged
+autoload/plug.vim
