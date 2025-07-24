@@ -9,7 +9,7 @@ rm ~/.tmux.conf
 rm ~/.zshrc
 rm -rf ~/.vim
 rm -rf ~/.config/alacritty || true
-rm -rf ~/.config/nvim || true
+# rm -rf ~/.config/nvim || true
 
 echo "Installing new dotfiles..."
 ln -sf $current_path/tmux.conf ~/.tmux.conf
@@ -22,7 +22,7 @@ ln -fs ~/.config/alacritty/themes/themes/pencil_light.toml ~/.config/alacritty/_
 ln -fs $current_path/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 echo "Install lazyvim..."
-git clone git@github.com:hicder/lazyvim.git ~/.config/nvim
+# git clone git@github.com:hicder/lazyvim.git ~/.config/nvim
 
 echo "Installing git aliases..."
 git config --global alias.cm commit
