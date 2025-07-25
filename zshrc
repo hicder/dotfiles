@@ -218,6 +218,14 @@ func rsync_cwd() {
   rsync -azP --delete --filter=':- .gitignore' --exclude='.git/' ./ hieu@dev:/mnt/data/rsync/"$current_dir"
 }
 
+func gcm() {
+  if git show-ref --verify --quiet refs/heads/master; then
+    git checkout master
+  else
+    git checkout main
+  fi
+}
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
