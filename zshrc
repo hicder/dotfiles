@@ -178,6 +178,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias c="open $1 -a /Applications/Cursor.app"
 fi
 
+# Rebase a branch by deleting it and recreating it with the latest commit
+# Usage: rebase_branch <branch_name>
 function rebase_branch {
   branch_name=$1
   commit=$(git rev-parse --verify $branch_name)
@@ -225,6 +227,13 @@ func gcm() {
     git checkout main
   fi
 }
+
+# bun completions
+[ -s "/Users/hpham/.bun/_bun" ] && source "/Users/hpham/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
