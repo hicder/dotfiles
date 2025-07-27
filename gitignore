@@ -1,0 +1,12 @@
+.aider*
+.augmentignore
+scratch/
+.clangd
+.vscode
+.opencode
+OpenCode.md
+t[0-9].json
+uv.lock
+.devcontainer
+build
+.cache
