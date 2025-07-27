@@ -24,8 +24,8 @@ ln -fs $current_path/alacritty.toml ~/.config/alacritty/alacritty.toml
 echo "Install lazyvim..."
 git clone git@github.com:hicder/lazyvim.git ~/.config/nvim
 
-echo "Copy gitiginored files..."
-cp $current_path/gitignore ~/.gitignore
+echo "Symlinking global gitiginore files..."
+ln -sf $current_path/gitignore ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
 echo "Installing git aliases..."
