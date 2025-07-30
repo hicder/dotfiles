@@ -127,14 +127,6 @@ fi
 
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin:$HOME/.local/bin
 
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
-fi
-
-if [ -f ~/.zshrc.local.env ]; then
-  source ~/.zshrc.local.env
-fi
-
 # start_tmux name num_windows
 function start_tmux() {
   sn=$1
@@ -207,10 +199,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   }
 fi
 
-if [ -f ~/.zshrc.ai.env ]; then
-  source ~/.zshrc.ai.env
-fi
-
 precmd() {
   title "$(pwd)"
 }
@@ -234,7 +222,16 @@ func gcm() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export EDITOR="nvim"
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
+fi
+
+if [ -f ~/.zshrc.local.env ]; then
+  source ~/.zshrc.local.env
+fi
+
+if [ -f ~/.zshrc.ai.env ]; then
+  source ~/.zshrc.ai.env
 fi

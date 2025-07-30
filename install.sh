@@ -28,6 +28,10 @@ echo "Symlinking global gitiginore files..."
 ln -sf $current_path/gitignore ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
+echo "Setup zellij..."
+mkdir -p ~/.config/zellij
+ln -sf $current_path/zellij.kdl ~/.config/zellij/config.kdl
+
 echo "Installing git aliases..."
 git config --global alias.cm commit
 git config --global alias.d diff
