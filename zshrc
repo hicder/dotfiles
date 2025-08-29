@@ -69,7 +69,7 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git wd)
+plugins=(git wd kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -223,6 +223,25 @@ func gcm() {
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export EDITOR="nvim"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# jj
+alias jp="jj git push --allow-new --bookmark"
+alias jbc="jj bookmark create"
+alias jd="jj describe -m"
+alias je="jj edit"
+
+# jj bookmark reset - reset local bookmark to match origin
+jbr() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: jbr <bookmark_name>"
+        return 1
+    fi
+
+    local bookmark="$1"
+    jj bookmark set "$bookmark" -r "${bookmark}@origin"
+}
+
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
@@ -234,4 +253,8 @@ fi
 
 if [ -f ~/.zshrc.ai.env ]; then
   source ~/.zshrc.ai.env
+fi
+
+if [ -f ~/.zshrc.rks ]; then
+  source ~/.zshrc.rks
 fi
