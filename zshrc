@@ -180,6 +180,36 @@ function rebase_branch {
   git cherry-pick $commit
 }
 
+switch_branch() {
+    local branch=$1
+
+    # Check if branch parameter is provided
+    if [[ -z "$branch" ]]; then
+        echo "Usage: switch_branch <branch-name>"
+        return 1
+    fi
+
+    # Delete local branch (force delete to avoid issues with unmerged changes)
+    echo "Deleting local branch '$branch'..."
+    git branch -D "$branch" 2>/dev/null || echo "Local branch '$branch' not found or already deleted"
+
+    # Pull latest changes from remote
+    echo "Pulling latest changes..."
+    git fetch || {
+        echo "Failed to pull changes"
+        return 1
+    }
+
+    # Checkout remote branch (this creates a local tracking branch)
+    echo "Checking out remote branch '$branch'..."
+    git checkout -B "$branch" "origin/$branch" || {
+        echo "Failed to checkout remote branch '$branch'"
+        return 1
+    }
+
+    echo "Successfully switched to branch '$branch'"
+}
+
 # If this is MacOS, then do something
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias v="open $1 -a /Applications/Visual\ Studio\ Code.app"
