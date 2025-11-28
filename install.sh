@@ -42,4 +42,27 @@ git config --global alias.st status
 echo "Install aerospace"
 ln -sf $current_path/aerospace.toml ~/.aerospace.toml
 
+echo "Installing JetBrains Mono font on Linux..."
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "Detected Linux, downloading JetBrains Mono..."
+    curl -L -o /tmp/jetbrains-mono.zip https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+
+    echo "Unzipping font archive..."
+    unzip -q /tmp/jetbrains-mono.zip -d /tmp/jetbrains-mono/
+
+    echo "Installing fonts to system..."
+    mkdir -p ~/.local/share/fonts/jetbrains-mono
+    cp /tmp/jetbrains-mono/fonts/variable/*.ttf ~/.local/share/fonts/jetbrains-mono/
+
+    echo "Updating font cache..."
+    fc-cache -f -v
+
+    echo "Cleaning up temporary files..."
+    rm -rf /tmp/jetbrains-mono.zip /tmp/jetbrains-mono/
+
+    echo "JetBrains Mono font installed successfully!"
+else
+    echo "Skipping font installation - not running on Linux"
+fi
+
 echo "Done"
