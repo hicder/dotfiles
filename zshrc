@@ -112,6 +112,7 @@ alias gca="git commit --amend"
 alias gr="git rebase --interactive master"
 alias gc="git rebase --continue"
 alias ga="git add ."
+alias gau="git add -u"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export HOMEBREW_PATH=/home/linuxbrew/.linuxbrew
@@ -162,12 +163,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   }
 
   func kde_dark() {
-    lookandfeeltool -a hieu.dark.desktop
-    aladark
-  }
+    lookandfeeltool -a hieu.dark.desktop aladark }
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias w="open $1 -a /Applications/Windsurf.app"
-  alias c="open $1 -a /Applications/Cursor.app"
 fi
 
 # Rebase a branch by deleting it and recreating it with the latest commit
@@ -213,9 +211,10 @@ switch_branch() {
 # If this is MacOS, then do something
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias v="open $1 -a /Applications/Visual\ Studio\ Code.app"
-  alias c="open $1 -a /Applications/Cursor.app"
   alias w="open $1 -a /Applications/Windsurf.app"
+  alias zp="open $1 -a /Applications/Zed\ Preview.app"
   alias nv="open $1 -a /Applications/Neovide.app/"
+  alias c="open $1 -a /Applications/Visual\ Studio\ Code.app"
 fi
 
 # If this is Linux
@@ -272,6 +271,7 @@ jbr() {
     jj bookmark set "$bookmark" -r "${bookmark}@origin"
 }
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
@@ -288,3 +288,16 @@ fi
 if [ -f ~/.zshrc.rks ]; then
   source ~/.zshrc.rks
 fi
+
+func setup_jdk17() {
+  export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+  export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+}
+
+export PATH=/Users/hpham/.opencode/bin:$PATH
+# opencode
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

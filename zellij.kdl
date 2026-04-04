@@ -156,7 +156,7 @@ keybinds clear-defaults=true {
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
     }
-    shared_except "tab" {
+    shared_except "tab" "locked" {
         bind "Ctrl t" { SwitchToMode "tab"; }
     }
     shared_except "locked" {
@@ -406,7 +406,7 @@ default_mode "normal"
 //   - true (default)
 //   - false
 // 
-// auto_layout false
+auto_layout true
  
 // Whether sessions should be serialized to the cache folder (including their tabs/panes, cwds and running commands) so that they can later be resurrected
 // Options:
