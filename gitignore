@@ -11,3 +11,4 @@ uv.lock
 build
 .cache
 .zed
+.envrc
