@@ -106,6 +106,7 @@ alias ezl="nvim ~/.zshrc.local"
 alias az="source ~/.zshrc"
 alias tm="tmux attach -d"
 alias dka='docker kill $(docker ps -q)'
+alias zw='zellij attach -c work'
 
 # git alias
 alias gca="git commit --amend"
@@ -273,6 +274,13 @@ jbr() {
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+source_venv() {
+  if [ -d ".venv" ]; then
+    source .venv/bin/activate
+  fi
+}
+
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
@@ -295,20 +303,14 @@ func setup_jdk17() {
 }
 
 export PATH=/Users/hpham/.opencode/bin:$PATH
-# opencode
-export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# opencode
-export PATH=/Users/hieu/.opencode/bin:$PATH
 
 # bindkey '^J' self-insert
 # bindkey '\e[13;2u' self-insert
 
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
