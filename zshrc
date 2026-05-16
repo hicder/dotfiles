@@ -302,7 +302,7 @@ func setup_jdk17() {
   export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 }
 
-export PATH=/Users/hpham/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 
 # bindkey '^J' self-insert
 # bindkey '\e[13;2u' self-insert
