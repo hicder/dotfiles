@@ -15,3 +15,5 @@ build
 .hicder
 plans
 .antigravitycli
+
+compile_commands.json
