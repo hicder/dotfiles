@@ -57,8 +57,8 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 8
-    inner.vertical =   8
+    inner.horizontal = 4
+    inner.vertical =   4
     outer.left =       0
     outer.bottom =     0
     outer.top =        0
@@ -158,6 +158,11 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
+    
+    # Launchers
+    alt-enter = '''exec-and-forget osascript -e 'tell application "Ghostty" to new window' '''
+    alt-shift-enter = '''exec-and-forget /Applications/Helium.app/Contents/MacOS/Helium --new-window'''
+    alt-shift-n = 'exec-and-forget /usr/local/bin/zed -n'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -185,10 +190,10 @@ automatically-unhide-macos-hidden-apps = false
     3 = 'main'
     4 = 'main'
     5 = 'main'
-    6 = 'main'
-    7 = 'main'
-    8 = 'main'
-    9 = 'main'
+    6 = 'secondary'
+    7 = 'secondary'
+    8 = 'secondary'
+    9 = 'secondary'
     A = 'secondary'
     B = 'secondary'
     C = 'secondary'
@@ -258,4 +263,12 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.QuickTimePlayerX'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'dev.kdrag0n.MacVirt'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iBooksX'
 run = 'layout floating'
