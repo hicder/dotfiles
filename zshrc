@@ -124,10 +124,10 @@ fi
 # If homebrew is installed, shellenv
 if [[ -d $HOMEBREW_PATH ]]; then
   eval "$($HOMEBREW_PATH/bin/brew shellenv)"
-  export PATH="$HOMEBREW_PATH/opt/llvm@14/bin:$PATH"
+  export PATH="$HOMEBREW_PATH/opt/llvm/bin:$PATH"
 fi
 
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin:$HOME/.local/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.cargo/bin:/opt/bin/nvim-linux64/bin
 
 # start_tmux name num_windows
 function start_tmux() {
@@ -253,7 +253,6 @@ func gcm() {
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export EDITOR="nvim"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # jj
 alias jp="jj git push --allow-new --bookmark"
@@ -297,20 +296,19 @@ if [ -f ~/.zshrc.rks ]; then
   source ~/.zshrc.rks
 fi
 
-func setup_jdk17() {
+setup_jdk17() {
   export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
   export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 }
 
 export PATH=$HOME/.opencode/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # bindkey '^J' self-insert
 # bindkey '\e[13;2u' self-insert
-
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 ([[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh") || true
 
+eval "$(direnv hook zsh)"
