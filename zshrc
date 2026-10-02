@@ -304,8 +304,8 @@ setup_jdk17() {
 export PATH=$HOME/.opencode/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
-# bindkey '^J' self-insert
-# bindkey '\e[13;2u' self-insert
+# load direnv
+export DIRENV_LOG_FORMAT=""
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
