@@ -229,6 +229,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   }
 fi
 
+# Hide the Raphael iGPU (gfx1036) from ROCm. It enumerates as HIP device 1, and
+# a binary built only for the dGPU's gfx1030 aborts inside the HIP runtime there.
+if [[ "$OSTYPE" == "linux-gnu"* ]] && [[ -d /opt/rocm ]]; then
+  export HIP_VISIBLE_DEVICES=0
+fi
+
 precmd() {
   title "$(pwd)"
 }
@@ -306,6 +312,9 @@ export PATH=$HOME/.local/bin:$PATH
 
 # load direnv
 export DIRENV_LOG_FORMAT=""
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.config/vite-plus/env"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
